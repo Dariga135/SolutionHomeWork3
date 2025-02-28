@@ -1,0 +1,56 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
+public class DungeonGameDemo {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        SimpleDungeonBuilder builder = new SimpleDungeonBuilder();
+
+        System.out.print("Enter dungeon name: ");
+        String dungeonName = scanner.nextLine();
+        builder.setDungeonName(dungeonName);
+
+        System.out.print("Enter number of rooms: ");
+        int roomCount = scanner.nextInt();
+        scanner.nextLine();
+
+        Room templateRoom = null;
+        for (int i = 0; i < roomCount; i++) {
+            System.out.print("Enter room name: ");
+            String roomName = scanner.nextLine();
+            System.out.print("Enter room description: ");
+            String roomDesc = scanner.nextLine();
+            Room room = new Room(roomName, roomDesc);
+            builder.addRoom(room);
+            if (i == 0) templateRoom = room;
+        }
+
+        System.out.print("Enter number of NPCs: ");
+        int npcCount = scanner.nextInt();
+        scanner.nextLine();
+        for (int i = 0; i < npcCount; i++) {
+            System.out.print("Enter NPC name: ");
+            String npcName = scanner.nextLine();
+            System.out.print("Enter NPC description: ");
+            String npcDesc = scanner.nextLine();
+            System.out.print("Enter NPC health: ");
+            int npcHealth = scanner.nextInt();
+            scanner.nextLine();
+            NPC npc = new NPC(npcName, npcDesc, npcHealth);
+            builder.addNPC(npc);
+        }
+
+
+        Dungeon dungeon = builder.build();
+        System.out.println("\nGenerated Dungeon:");
+        System.out.println(dungeon);
+
+
+        if (templateRoom != null) {
+            Room clonedRoom = (Room) templateRoom.cloneEntity();
+            System.out.println("\nCloned Room:");
+            System.out.println(clonedRoom);
+        }
+    }
+}
