@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 class SimpleDungeonBuilder implements IDungeonBuilder {
     private String name;
     private List<Room> rooms = new ArrayList<>();
@@ -9,12 +13,12 @@ class SimpleDungeonBuilder implements IDungeonBuilder {
     }
 
     public IDungeonBuilder addRoom(Room room) {
-        this.rooms.add(room);
+        rooms.add(room);
         return this;
     }
 
     public IDungeonBuilder addNPC(NPC npc) {
-        this.npcs.add(npc);
+        npcs.add(npc);
         return this;
     }
 

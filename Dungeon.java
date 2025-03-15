@@ -1,3 +1,7 @@
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Scanner;
+
 class Dungeon {
     private String name;
     private List<Room> rooms;
@@ -10,6 +14,6 @@ class Dungeon {
     }
 
     public String toString() {
-        return "Dungeon: " + name + ", Rooms: " + rooms + ", NPCs: " + npcs;
+        return "Dungeon: " + name + "\nRooms: " + rooms + "\nNPCs: " + npcs;
     }
 }

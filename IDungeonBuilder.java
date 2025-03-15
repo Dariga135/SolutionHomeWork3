@@ -4,3 +4,4 @@ interface IDungeonBuilder {
     IDungeonBuilder addNPC(NPC npc);
     Dungeon build();
 }
+
